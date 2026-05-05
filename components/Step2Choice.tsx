@@ -1,4 +1,3 @@
-// components/Step2Choice.tsx
 import { CalculationMode } from '@/lib/types';
 
 interface Step2ChoiceProps {
@@ -8,86 +7,102 @@ interface Step2ChoiceProps {
 
 export default function Step2Choice({ onNext, onBack }: Step2ChoiceProps) {
   return (
-    <div style={{ padding: '30px 20px' }}>
+    <div style={{ padding: '40px 20px' }}>
       <button
         onClick={onBack}
         style={{
           background: 'none',
           border: 'none',
           cursor: 'pointer',
-          color: '#2c3e50',
+          color: '#1a3a52',
           textDecoration: 'underline',
-          marginBottom: '15px',
+          marginBottom: '20px',
+          fontSize: '14px',
+          fontWeight: 500,
+          transition: 'color 0.3s',
         }}
+        onMouseOver={(e) => (e.currentTarget.style.color = '#00d4ff')}
+        onMouseOut={(e) => (e.currentTarget.style.color = '#1a3a52')}
       >
         ← Volver
       </button>
 
-      <h2 style={{ fontSize: '18px', marginBottom: '20px', color: '#333' }}>
+      <h2
+        style={{
+          fontSize: '22px',
+          marginBottom: '28px',
+          color: '#1a3a52',
+          fontFamily: "'Space Mono', monospace",
+          fontWeight: 700,
+        }}
+      >
         ¿Qué quieres calcular?
       </h2>
 
-      <button
-        onClick={() => onNext('A')}
-        style={{
-          display: 'block',
-          width: '100%',
-          padding: '20px',
-          marginBottom: '15px',
-          border: '2px solid #ddd',
-          borderRadius: '8px',
-          background: 'white',
-          textAlign: 'left',
-          cursor: 'pointer',
-          transition: 'all 0.3s',
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.borderColor = '#2c3e50';
-          e.currentTarget.style.background = '#f9f9f9';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.borderColor = '#ddd';
-          e.currentTarget.style.background = 'white';
-        }}
-      >
-        <strong style={{ display: 'block', fontSize: '16px', marginBottom: '5px', color: '#2c3e50' }}>
-          💰 ¿Cuánto me prestan según mi sueldo?
-        </strong>
-        <span style={{ fontSize: '12px', color: '#666' }}>
-          Ingresa tu sueldo y descubre cuántas UF puedes pedir prestado
-        </span>
-      </button>
-
-      <button
-        onClick={() => onNext('B')}
-        style={{
-          display: 'block',
-          width: '100%',
-          padding: '20px',
-          marginBottom: '15px',
-          border: '2px solid #ddd',
-          borderRadius: '8px',
-          background: 'white',
-          textAlign: 'left',
-          cursor: 'pointer',
-          transition: 'all 0.3s',
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.borderColor = '#2c3e50';
-          e.currentTarget.style.background = '#f9f9f9';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.borderColor = '#ddd';
-          e.currentTarget.style.background = 'white';
-        }}
-      >
-        <strong style={{ display: 'block', fontSize: '16px', marginBottom: '5px', color: '#2c3e50' }}>
-          🏠 ¿Cuánto sueldo necesito para una propiedad?
-        </strong>
-        <span style={{ fontSize: '12px', color: '#666' }}>
-          Elige el valor de la propiedad que te interesa y sabremos cuánto sueldo necesitas
-        </span>
-      </button>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        {[
+          {
+            mode: 'A' as CalculationMode,
+            emoji: '💰',
+            title: '¿Cuánto me prestan según mi sueldo?',
+            desc: 'Ingresa tu sueldo y descubre cuántas UF puedes pedir prestado',
+          },
+          {
+            mode: 'B' as CalculationMode,
+            emoji: '🏠',
+            title: '¿Cuánto sueldo necesito para una propiedad?',
+            desc: 'Elige el valor de la propiedad que te interesa y sabe cuánto sueldo necesitas',
+          },
+        ].map((option) => (
+          <button
+            key={option.mode}
+            onClick={() => onNext(option.mode)}
+            style={{
+              display: 'block',
+              width: '100%',
+              padding: '24px',
+              border: '2px solid #e2e8f0',
+              borderRadius: '12px',
+              background: 'white',
+              textAlign: 'left',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease',
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.borderColor = '#00d4ff';
+              e.currentTarget.style.background =
+                'linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%)';
+              e.currentTarget.style.transform = 'translateY(-2px)';
+              e.currentTarget.style.boxShadow =
+                '0 8px 24px rgba(0, 212, 255, 0.2)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.borderColor = '#e2e8f0';
+              e.currentTarget.style.background = 'white';
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = 'none';
+            }}
+          >
+            <div style={{ fontSize: '32px', marginBottom: '12px' }}>
+              {option.emoji}
+            </div>
+            <div
+              style={{
+                fontSize: '16px',
+                fontWeight: 600,
+                color: '#1a3a52',
+                fontFamily: "'Space Mono', monospace",
+                marginBottom: '8px',
+              }}
+            >
+              {option.title}
+            </div>
+            <div style={{ fontSize: '14px', color: '#64748b' }}>
+              {option.desc}
+            </div>
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
