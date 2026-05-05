@@ -94,7 +94,7 @@ export default function Footer() {
             }}
           >
             <a
-              href="https://instagram.com/rodrigocallej"
+              href="https://www.instagram.com/rodrigo.callejon/"
               target="_blank"
               rel="noopener noreferrer"
               style={socialLinkStyle(instagramHover)}
@@ -104,7 +104,7 @@ export default function Footer() {
               📸 Instagram
             </a>
             <a
-              href="https://linkedin.com/in/rodrigocallej"
+              href="https://www.linkedin.com/in/rodrigo-callej%C3%B3n-70b76715b/"
               target="_blank"
               rel="noopener noreferrer"
               style={socialLinkStyle(linkedinHover)}
