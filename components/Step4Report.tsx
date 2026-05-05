@@ -23,15 +23,18 @@ export default function Step4Report({ mode, result, inputValue, onNext, onBack }
           background: 'none',
           border: 'none',
           cursor: 'pointer',
-          color: '#2c3e50',
+          color: '#1a3a52',
           textDecoration: 'underline',
           marginBottom: '15px',
+          transition: 'color 0.3s',
         }}
+        onMouseOver={(e) => (e.currentTarget.style.color = '#00d4ff')}
+        onMouseOut={(e) => (e.currentTarget.style.color = '#1a3a52')}
       >
         ← Volver
       </button>
 
-      <h2 style={{ fontSize: '18px', marginBottom: '20px', color: '#333' }}>
+      <h2 style={{ fontSize: '18px', marginBottom: '20px', color: '#333', fontFamily: "'Space Mono', monospace", fontWeight: 700 }}>
         {isModeA
           ? `Con tu sueldo de $${formattedInput} puedes pedir prestado:`
           : `Para esa propiedad de ${formattedInput} UF necesitas:`
@@ -63,7 +66,7 @@ export default function Step4Report({ mode, result, inputValue, onNext, onBack }
               animation: 'fadeIn 0.6s ease-out',
             }}
           >
-            <div style={{ fontSize: '12px', color: '#0369a1', marginBottom: '8px', textTransform: 'uppercase', fontWeight: 600 }}>
+            <div style={{ fontSize: '12px', color: '#0369a1', marginBottom: '8px', textTransform: 'uppercase', fontWeight: 600, fontFamily: "'Space Mono', monospace" }}>
               Con subsidio a la tasa
             </div>
             <div style={{ fontSize: '28px', fontWeight: 700, color: '#1a3a52' }}>
@@ -80,7 +83,7 @@ export default function Step4Report({ mode, result, inputValue, onNext, onBack }
               animation: 'fadeIn 0.6s ease-out 0.2s both',
             }}
           >
-            <div style={{ fontSize: '12px', color: '#475569', marginBottom: '8px', textTransform: 'uppercase', fontWeight: 600 }}>
+            <div style={{ fontSize: '12px', color: '#475569', marginBottom: '8px', textTransform: 'uppercase', fontWeight: 600, fontFamily: "'Space Mono', monospace" }}>
               Sin subsidio a la tasa
             </div>
             <div style={{ fontSize: '28px', fontWeight: 700, color: '#1a3a52' }}>
@@ -106,6 +109,7 @@ export default function Step4Report({ mode, result, inputValue, onNext, onBack }
               marginBottom: '8px',
               textTransform: 'uppercase',
               fontWeight: 600,
+              fontFamily: "'Space Mono', monospace",
             }}
           >
             Sueldo líquido mínimo
