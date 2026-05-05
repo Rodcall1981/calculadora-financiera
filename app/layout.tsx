@@ -19,9 +19,7 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <div style={{ maxWidth: '500px', margin: '0 auto' }}>
-          {children}
-        </div>
+        {children}
       </body>
     </html>
   );
