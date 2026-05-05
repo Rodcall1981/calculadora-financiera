@@ -4,12 +4,14 @@ import { CalculationMode, CalculationResult } from '@/lib/types';
 interface Step4ReportProps {
   mode: CalculationMode;
   result: CalculationResult;
+  inputValue: number;
   onNext: () => void;
   onBack: () => void;
 }
 
-export default function Step4Report({ mode, result, onNext, onBack }: Step4ReportProps) {
+export default function Step4Report({ mode, result, inputValue, onNext, onBack }: Step4ReportProps) {
   const isModeA = mode === 'A';
+  const formattedInput = inputValue.toLocaleString('es-CL');
 
   return (
     <div style={{ padding: '30px 20px' }}>
@@ -28,7 +30,10 @@ export default function Step4Report({ mode, result, onNext, onBack }: Step4Repor
       </button>
 
       <h2 style={{ fontSize: '18px', marginBottom: '20px', color: '#333' }}>
-        {isModeA ? 'Con tu sueldo puedes pedir prestado:' : 'Para esa propiedad necesitas:'}
+        {isModeA
+          ? `Con tu sueldo de $${formattedInput} puedes pedir prestado:`
+          : `Para esa propiedad de ${formattedInput} UF necesitas:`
+        }
       </h2>
 
       {isModeA ? (

@@ -96,7 +96,7 @@ export default function Home() {
         {!loading && (
           <>
             {step === 1 && <Step1Form onNext={handleStep1Next} />}
-            {step === 2 && mode === null && (
+            {step === 2 && (
               <Step2Choice
                 onNext={handleStep2Next}
                 onBack={() => setStep(1)}
@@ -109,10 +109,11 @@ export default function Home() {
                 onBack={() => setStep(2)}
               />
             )}
-            {step === 4 && result && (
+            {step === 4 && result && inputValue !== null && (
               <Step4Report
                 mode={mode!}
                 result={result}
+                inputValue={inputValue}
                 onNext={handleStep4Next}
                 onBack={() => setStep(3)}
               />

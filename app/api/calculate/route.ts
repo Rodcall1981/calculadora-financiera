@@ -15,11 +15,12 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const ufActual = await fetchUFFromGoogleSheets();
+
     if (mode === 'A') {
-      const result = calculateLoanCapacityA(valor);
+      const result = calculateLoanCapacityA(valor, ufActual);
       return NextResponse.json(result);
     } else if (mode === 'B') {
-      const ufActual = await fetchUFFromGoogleSheets();
       const result = calculateRequiredSalaryB(valor, ufActual);
       return NextResponse.json(result);
     }
