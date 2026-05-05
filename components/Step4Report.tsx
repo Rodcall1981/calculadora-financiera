@@ -36,34 +36,84 @@ export default function Step4Report({ mode, result, inputValue, onNext, onBack }
         }
       </h2>
 
+      <style>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
+
       {isModeA ? (
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px', marginTop: '20px' }}>
-          <div style={{ background: '#f9f9f9', padding: '15px', borderRadius: '8px', textAlign: 'center' }}>
-            <div style={{ fontSize: '11px', color: '#999', marginBottom: '8px', textTransform: 'uppercase' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginTop: '24px' }}>
+          <div
+            style={{
+              background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)',
+              padding: '24px',
+              borderRadius: '12px',
+              textAlign: 'center',
+              border: '2px solid #00d4ff',
+              animation: 'fadeIn 0.6s ease-out',
+            }}
+          >
+            <div style={{ fontSize: '12px', color: '#0369a1', marginBottom: '8px', textTransform: 'uppercase', fontWeight: 600 }}>
               Con subsidio a la tasa
             </div>
-            <div style={{ fontSize: '22px', fontWeight: 700, color: '#2c3e50' }}>
+            <div style={{ fontSize: '28px', fontWeight: 700, color: '#1a3a52' }}>
               {result.conSubsidio?.toLocaleString('es-CL')} UF
             </div>
           </div>
-          <div style={{ background: '#f9f9f9', padding: '15px', borderRadius: '8px', textAlign: 'center' }}>
-            <div style={{ fontSize: '11px', color: '#999', marginBottom: '8px', textTransform: 'uppercase' }}>
+          <div
+            style={{
+              background: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)',
+              padding: '24px',
+              borderRadius: '12px',
+              textAlign: 'center',
+              border: '2px solid #cbd5e1',
+              animation: 'fadeIn 0.6s ease-out 0.2s both',
+            }}
+          >
+            <div style={{ fontSize: '12px', color: '#475569', marginBottom: '8px', textTransform: 'uppercase', fontWeight: 600 }}>
               Sin subsidio a la tasa
             </div>
-            <div style={{ fontSize: '22px', fontWeight: 700, color: '#2c3e50' }}>
+            <div style={{ fontSize: '28px', fontWeight: 700, color: '#1a3a52' }}>
               {result.sinSubsidio?.toLocaleString('es-CL')} UF
             </div>
           </div>
         </div>
       ) : (
-        <div style={{ background: '#f9f9f9', padding: '20px', borderRadius: '8px', marginBottom: '20px', borderLeft: '4px solid #27ae60' }}>
-          <div style={{ fontSize: '12px', color: '#999', marginBottom: '5px', textTransform: 'uppercase' }}>
+        <div
+          style={{
+            background: 'linear-gradient(135deg, #dcfce7 0%, #d1fae5 100%)',
+            padding: '32px 24px',
+            borderRadius: '12px',
+            marginBottom: '20px',
+            borderLeft: '6px solid #10b981',
+            animation: 'fadeIn 0.6s ease-out',
+          }}
+        >
+          <div
+            style={{
+              fontSize: '12px',
+              color: '#047857',
+              marginBottom: '8px',
+              textTransform: 'uppercase',
+              fontWeight: 600,
+            }}
+          >
             Sueldo líquido mínimo
           </div>
-          <div style={{ fontSize: '28px', fontWeight: 700, color: '#27ae60', marginBottom: '10px' }}>
+          <div style={{ fontSize: '36px', fontWeight: 700, color: '#10b981', marginBottom: '8px' }}>
             ${result.sueldoRequerido?.toLocaleString('es-CL')}
           </div>
-          <div style={{ fontSize: '12px', color: '#666' }}>mensual para calificar</div>
+          <div style={{ fontSize: '13px', color: '#059669' }}>
+            mensual para calificar
+          </div>
         </div>
       )}
 
