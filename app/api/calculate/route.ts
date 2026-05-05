@@ -1,4 +1,4 @@
-// app/api/calculate.ts
+// app/api/calculate/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { calculateLoanCapacityA, calculateRequiredSalaryB } from '@/lib/calculations';
 import { fetchUFFromGoogleSheets } from '@/lib/googleSheets';

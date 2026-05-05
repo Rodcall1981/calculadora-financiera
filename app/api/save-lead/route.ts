@@ -1,4 +1,4 @@
-// app/api/save-lead.ts
+// app/api/save-lead/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { saveLead } from '@/lib/supabase';
 

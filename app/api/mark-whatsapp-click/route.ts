@@ -1,4 +1,4 @@
-// app/api/mark-whatsapp-click.ts
+// app/api/mark-whatsapp-click/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { markWhatsAppClick } from '@/lib/supabase';
 
