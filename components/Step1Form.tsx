@@ -1,4 +1,3 @@
-// components/Step1Form.tsx
 import { FormData } from '@/lib/types';
 import React from 'react';
 
@@ -10,6 +9,7 @@ export default function Step1Form({ onNext }: Step1FormProps) {
   const [email, setEmail] = React.useState('');
   const [nombre, setNombre] = React.useState('');
   const [errors, setErrors] = React.useState<Record<string, string>>({});
+  const [focusedField, setFocusedField] = React.useState<string | null>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,61 +33,118 @@ export default function Step1Form({ onNext }: Step1FormProps) {
     onNext({ email, nombre });
   };
 
+  const inputStyle = (field: string) => ({
+    width: '100%',
+    padding: '16px',
+    border: `2px solid ${
+      errors[field]
+        ? '#ef4444'
+        : focusedField === field
+          ? '#00d4ff'
+          : '#e2e8f0'
+    }`,
+    borderRadius: '12px',
+    fontSize: '16px',
+    fontFamily: 'Inter, sans-serif',
+    transition: 'all 0.3s ease',
+    outline: 'none',
+    boxShadow: focusedField === field ? '0 0 0 3px rgba(0, 212, 255, 0.1)' : 'none',
+  });
+
   return (
-    <form onSubmit={handleSubmit} style={{ padding: '30px 20px' }}>
-      <h2 style={{ fontSize: '18px', marginBottom: '20px', color: '#333' }}>
+    <form onSubmit={handleSubmit} style={{ padding: '40px 20px' }}>
+      <h2
+        style={{
+          fontSize: '22px',
+          marginBottom: '28px',
+          color: '#1a3a52',
+          fontFamily: "'Space Mono', monospace",
+          fontWeight: 700,
+        }}
+      >
         Cuéntame quién eres
       </h2>
 
       <div style={{ marginBottom: '20px' }}>
-        <label style={{ display: 'block', marginBottom: '8px', fontWeight: 500 }}>
+        <label
+          style={{
+            display: 'block',
+            marginBottom: '12px',
+            fontWeight: 600,
+            color: '#1a3a52',
+            fontSize: '14px',
+            fontFamily: "'Space Mono', monospace",
+          }}
+        >
           Tu correo electrónico
         </label>
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          onFocus={() => setFocusedField('email')}
+          onBlur={() => setFocusedField(null)}
           placeholder="tu@email.com"
-          style={{
-            width: '100%',
-            padding: '12px',
-            border: `1px solid ${errors.email ? '#d32f2f' : '#ddd'}`,
-            borderRadius: '6px',
-          }}
+          style={inputStyle('email') as React.CSSProperties}
         />
-        {errors.email && <p style={{ color: '#d32f2f', fontSize: '12px' }}>{errors.email}</p>}
+        {errors.email && (
+          <p style={{ color: '#ef4444', fontSize: '12px', marginTop: '8px' }}>
+            {errors.email}
+          </p>
+        )}
       </div>
 
       <div style={{ marginBottom: '20px' }}>
-        <label style={{ display: 'block', marginBottom: '8px', fontWeight: 500 }}>
+        <label
+          style={{
+            display: 'block',
+            marginBottom: '12px',
+            fontWeight: 600,
+            color: '#1a3a52',
+            fontSize: '14px',
+            fontFamily: "'Space Mono', monospace",
+          }}
+        >
           Nombre completo
         </label>
         <input
           type="text"
           value={nombre}
           onChange={(e) => setNombre(e.target.value)}
+          onFocus={() => setFocusedField('nombre')}
+          onBlur={() => setFocusedField(null)}
           placeholder="Juan Pérez"
-          style={{
-            width: '100%',
-            padding: '12px',
-            border: `1px solid ${errors.nombre ? '#d32f2f' : '#ddd'}`,
-            borderRadius: '6px',
-          }}
+          style={inputStyle('nombre') as React.CSSProperties}
         />
-        {errors.nombre && <p style={{ color: '#d32f2f', fontSize: '12px' }}>{errors.nombre}</p>}
+        {errors.nombre && (
+          <p style={{ color: '#ef4444', fontSize: '12px', marginTop: '8px' }}>
+            {errors.nombre}
+          </p>
+        )}
       </div>
 
       <button
         type="submit"
         style={{
           width: '100%',
-          padding: '12px',
-          background: '#2c3e50',
+          padding: '14px 40px',
+          background: 'linear-gradient(135deg, #1a3a52 0%, #2c5282 100%)',
           color: 'white',
           border: 'none',
-          borderRadius: '6px',
+          borderRadius: '8px',
+          fontSize: '16px',
           fontWeight: 600,
           cursor: 'pointer',
+          transition: 'all 0.3s ease',
+          boxShadow: '0 4px 12px rgba(26, 58, 82, 0.2)',
+        }}
+        onMouseOver={(e) => {
+          e.currentTarget.style.boxShadow = '0 8px 24px rgba(26, 58, 82, 0.3)';
+          e.currentTarget.style.transform = 'translateY(-2px)';
+        }}
+        onMouseOut={(e) => {
+          e.currentTarget.style.boxShadow = '0 4px 12px rgba(26, 58, 82, 0.2)';
+          e.currentTarget.style.transform = 'translateY(0)';
         }}
       >
         Siguiente
