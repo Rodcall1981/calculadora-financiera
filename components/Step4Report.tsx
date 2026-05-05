@@ -1,5 +1,5 @@
 // components/Step4Report.tsx
-import { CalculationMode, CalculationResult } from '@/lib/types';
+import { CalculationMode, CalculationResult, CalculationResultA, CalculationResultB } from '@/lib/types';
 
 interface Step4ReportProps {
   mode: CalculationMode;
@@ -12,6 +12,8 @@ interface Step4ReportProps {
 export default function Step4Report({ mode, result, inputValue, onNext, onBack }: Step4ReportProps) {
   const isModeA = mode === 'A';
   const formattedInput = inputValue.toLocaleString('es-CL');
+  const resultA = result as CalculationResultA;
+  const resultB = result as CalculationResultB;
 
   return (
     <div style={{ padding: '30px 20px' }}>
@@ -65,7 +67,7 @@ export default function Step4Report({ mode, result, inputValue, onNext, onBack }
               Con subsidio a la tasa
             </div>
             <div style={{ fontSize: '28px', fontWeight: 700, color: '#1a3a52' }}>
-              {result.conSubsidio?.toLocaleString('es-CL')} UF
+              {resultA.conSubsidio?.toLocaleString('es-CL')} UF
             </div>
           </div>
           <div
@@ -82,7 +84,7 @@ export default function Step4Report({ mode, result, inputValue, onNext, onBack }
               Sin subsidio a la tasa
             </div>
             <div style={{ fontSize: '28px', fontWeight: 700, color: '#1a3a52' }}>
-              {result.sinSubsidio?.toLocaleString('es-CL')} UF
+              {resultA.sinSubsidio?.toLocaleString('es-CL')} UF
             </div>
           </div>
         </div>
@@ -109,7 +111,7 @@ export default function Step4Report({ mode, result, inputValue, onNext, onBack }
             Sueldo líquido mínimo
           </div>
           <div style={{ fontSize: '36px', fontWeight: 700, color: '#10b981', marginBottom: '8px' }}>
-            ${result.sueldoRequerido?.toLocaleString('es-CL')}
+            ${resultB.sueldoRequerido?.toLocaleString('es-CL')}
           </div>
           <div style={{ fontSize: '13px', color: '#059669' }}>
             mensual para calificar
