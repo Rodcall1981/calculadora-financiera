@@ -1,4 +1,3 @@
-// components/Step5CTA.tsx
 import React from 'react';
 
 interface Step5CTAProps {
@@ -27,38 +26,67 @@ export default function Step5CTA({ email, nombre, onRestart }: Step5CTAProps) {
   };
 
   return (
-    <div style={{ padding: '30px 20px' }}>
-      <h1 style={{ fontSize: '20px', marginBottom: '20px', color: '#2c3e50', textAlign: 'center' }}>
+    <div style={{ padding: '40px 20px' }}>
+      <h1
+        style={{
+          fontSize: '28px',
+          marginBottom: '28px',
+          color: '#1a3a52',
+          fontFamily: "'Space Mono', monospace",
+          fontWeight: 700,
+          textAlign: 'center',
+        }}
+      >
         ¿Quieres Ir Más Allá?
       </h1>
 
       <div
         style={{
-          background: '#e8f5e9',
-          padding: '20px',
-          borderRadius: '8px',
+          background: 'linear-gradient(135deg, #dcfce7 0%, #d1fae5 100%)',
+          padding: '32px 24px',
+          borderRadius: '12px',
           marginBottom: '20px',
           textAlign: 'center',
-          border: '2px dashed #27ae60',
+          border: '2px solid #10b981',
+          animation: 'fadeIn 0.6s ease-out',
         }}
       >
-        <p style={{ fontSize: '14px', color: '#333', marginBottom: '15px' }}>
-          <strong>¿Quieres conocer qué proyectos podrías comprar con esto?</strong>
+        <p
+          style={{
+            fontSize: '16px',
+            color: '#047857',
+            marginBottom: '12px',
+            fontFamily: "'Space Mono', monospace",
+            fontWeight: 700,
+          }}
+        >
+          ¿Quieres conocer qué proyectos podrías comprar con esto?
         </p>
-        <p style={{ fontSize: '12px', marginBottom: '10px', color: '#666' }}>
+        <p style={{ fontSize: '14px', marginBottom: '20px', color: '#059669' }}>
           Conecta con nuestro equipo y te mostraremos opciones reales de inversión
         </p>
         <button
           onClick={handleWhatsAppClick}
           style={{
             width: '100%',
-            padding: '12px',
-            background: '#25d366',
+            padding: '14px 40px',
+            background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
             color: 'white',
             border: 'none',
-            borderRadius: '6px',
+            borderRadius: '8px',
+            fontSize: '16px',
             fontWeight: 600,
             cursor: 'pointer',
+            transition: 'all 0.3s ease',
+            boxShadow: '0 4px 12px rgba(16, 185, 129, 0.2)',
+          }}
+          onMouseOver={(e) => {
+            e.currentTarget.style.boxShadow = '0 8px 24px rgba(16, 185, 129, 0.3)';
+            e.currentTarget.style.transform = 'translateY(-2px)';
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.boxShadow = '0 4px 12px rgba(16, 185, 129, 0.2)';
+            e.currentTarget.style.transform = 'translateY(0)';
           }}
         >
           💬 Agendar en WhatsApp
@@ -69,18 +97,41 @@ export default function Step5CTA({ email, nombre, onRestart }: Step5CTAProps) {
         <button
           onClick={onRestart}
           style={{
-            padding: '12px 20px',
-            background: '#ecf0f1',
-            color: '#333',
-            border: 'none',
-            borderRadius: '6px',
+            padding: '12px 24px',
+            background: 'linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%)',
+            color: '#1a3a52',
+            border: '2px solid #e2e8f0',
+            borderRadius: '8px',
             fontWeight: 600,
             cursor: 'pointer',
+            transition: 'all 0.3s ease',
+            fontFamily: "'Space Mono', monospace",
+          }}
+          onMouseOver={(e) => {
+            e.currentTarget.style.borderColor = '#00d4ff';
+            e.currentTarget.style.background = 'linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%)';
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.borderColor = '#e2e8f0';
+            e.currentTarget.style.background = 'linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%)';
           }}
         >
           Calcular de nuevo
         </button>
       </div>
+
+      <style>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </div>
   );
 }
