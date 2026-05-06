@@ -1,6 +1,9 @@
 export const metadata = {
   title: 'Calculadora Financiera Inmobiliaria',
   description: 'Calcula tu capacidad de préstamo o sueldo requerido',
+  icons: {
+    icon: '/favicon.svg',
+  },
 };
 
 export default function RootLayout({
