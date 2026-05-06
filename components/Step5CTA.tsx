@@ -21,7 +21,7 @@ export default function Step5CTA({ email, nombre, onRestart }: Step5CTAProps) {
     const message = encodeURIComponent(
       'Hola, según la calculadora tengo capacidad de compra. Quiero conocer qué proyectos podrían ser para mí.'
     );
-    const whatsappNumber = '56912345678';
+    const whatsappNumber = '56940408494';
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
   };
 

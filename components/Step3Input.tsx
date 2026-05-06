@@ -52,20 +52,25 @@ export default function Step3Input({ mode, onNext, onBack }: Step3InputProps) {
           background: 'none',
           border: 'none',
           cursor: 'pointer',
-          color: '#2c3e50',
+          color: '#1a3a52',
           textDecoration: 'underline',
           marginBottom: '15px',
+          fontFamily: "'Space Mono', monospace",
+          fontSize: '14px',
+          transition: 'color 0.3s',
         }}
+        onMouseOver={(e) => (e.currentTarget.style.color = '#00d4ff')}
+        onMouseOut={(e) => (e.currentTarget.style.color = '#1a3a52')}
       >
         ← Volver
       </button>
 
-      <h2 style={{ fontSize: '18px', marginBottom: '20px', color: '#333' }}>
+      <h2 style={{ fontSize: '22px', marginBottom: '28px', color: '#1a3a52', fontFamily: "'Space Mono', monospace", fontWeight: 700 }}>
         {isModeA ? '¿Cuál es tu sueldo líquido?' : '¿Cuál es el valor de la propiedad?'}
       </h2>
 
       <div style={{ marginBottom: '20px' }}>
-        <label style={{ display: 'block', marginBottom: '8px', fontWeight: 500 }}>
+        <label style={{ display: 'block', marginBottom: '8px', fontWeight: 600, fontFamily: "'Space Mono', monospace", color: '#1a3a52', fontSize: '14px' }}>
           {label}
         </label>
         <input
@@ -75,27 +80,51 @@ export default function Step3Input({ mode, onNext, onBack }: Step3InputProps) {
           placeholder={placeholder}
           style={{
             width: '100%',
-            padding: '12px',
-            border: `1px solid ${error ? '#d32f2f' : '#ddd'}`,
-            borderRadius: '6px',
+            padding: '16px',
+            border: `2px solid ${error ? '#ef4444' : '#e2e8f0'}`,
+            borderRadius: '12px',
+            fontSize: '16px',
+            transition: 'all 0.3s',
+            fontFamily: 'inherit',
+            outline: 'none',
+            boxSizing: 'border-box' as const,
+          }}
+          onFocus={(e) => {
+            e.currentTarget.style.borderColor = '#00d4ff';
+            e.currentTarget.style.boxShadow = '0 0 0 3px rgba(0, 212, 255, 0.1)';
+          }}
+          onBlur={(e) => {
+            e.currentTarget.style.borderColor = error ? '#ef4444' : '#e2e8f0';
+            e.currentTarget.style.boxShadow = 'none';
           }}
         />
-        {error && <p style={{ color: '#d32f2f', fontSize: '12px' }}>{error}</p>}
+        {error && <p style={{ color: '#ef4444', fontSize: '12px', marginTop: '8px' }}>{error}</p>}
       </div>
 
-      <p style={{ fontSize: '12px', color: '#999', marginBottom: '20px' }}>{hint}</p>
+      <p style={{ fontSize: '13px', color: '#64748b', marginBottom: '20px', fontFamily: "'Space Mono', monospace" }}>{hint}</p>
 
       <button
         type="submit"
         style={{
           width: '100%',
-          padding: '12px',
-          background: '#2c3e50',
+          padding: '14px 40px',
+          background: 'linear-gradient(135deg, #1a3a52 0%, #2c5282 100%)',
           color: 'white',
           border: 'none',
-          borderRadius: '6px',
+          borderRadius: '8px',
           fontWeight: 600,
           cursor: 'pointer',
+          fontFamily: "'Space Mono', monospace",
+          fontSize: '16px',
+          transition: 'all 0.3s',
+        }}
+        onMouseOver={(e) => {
+          e.currentTarget.style.boxShadow = '0 8px 24px rgba(26, 58, 82, 0.3)';
+          e.currentTarget.style.transform = 'translateY(-2px)';
+        }}
+        onMouseOut={(e) => {
+          e.currentTarget.style.boxShadow = 'none';
+          e.currentTarget.style.transform = 'translateY(0)';
         }}
       >
         Ver resultado

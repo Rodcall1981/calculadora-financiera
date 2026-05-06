@@ -48,6 +48,7 @@ export default function Step1Form({ onNext }: Step1FormProps) {
     fontFamily: 'Inter, sans-serif',
     transition: 'all 0.3s ease',
     outline: 'none',
+    boxSizing: 'border-box' as const,
     boxShadow: focusedField === field ? '0 0 0 3px rgba(0, 212, 255, 0.1)' : 'none',
   });
 

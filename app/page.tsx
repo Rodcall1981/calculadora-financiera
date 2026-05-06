@@ -115,11 +115,22 @@ export default function Home() {
               style={{
                 background: 'linear-gradient(135deg, #1a3a52 0%, #2c5282 100%)',
                 color: 'white',
-                padding: '24px',
-                textAlign: 'center',
+                padding: '16px 24px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '24px',
               }}
             >
-              <h1 style={{ fontSize: '24px', fontWeight: 700 }}>
+              <img
+                src="/logo-white.svg"
+                alt="Logo"
+                style={{
+                  height: '72px',
+                  width: 'auto',
+                  flexShrink: 0,
+                }}
+              />
+              <h1 style={{ fontSize: '24px', fontWeight: 700, margin: 0 }}>
                 Calculadora Financiera
               </h1>
             </div>

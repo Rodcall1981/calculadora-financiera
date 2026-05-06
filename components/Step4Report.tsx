@@ -27,6 +27,8 @@ export default function Step4Report({ mode, result, inputValue, onNext, onBack }
           textDecoration: 'underline',
           marginBottom: '15px',
           transition: 'color 0.3s',
+          fontFamily: "'Space Mono', monospace",
+          fontSize: '14px',
         }}
         onMouseOver={(e) => (e.currentTarget.style.color = '#00d4ff')}
         onMouseOut={(e) => (e.currentTarget.style.color = '#1a3a52')}
@@ -69,7 +71,7 @@ export default function Step4Report({ mode, result, inputValue, onNext, onBack }
             <div style={{ fontSize: '12px', color: '#0369a1', marginBottom: '8px', textTransform: 'uppercase', fontWeight: 600, fontFamily: "'Space Mono', monospace" }}>
               Con subsidio a la tasa
             </div>
-            <div style={{ fontSize: '28px', fontWeight: 700, color: '#1a3a52' }}>
+            <div style={{ fontSize: '28px', fontWeight: 700, color: '#1a3a52', fontFamily: "'Space Mono', monospace" }}>
               {resultA.conSubsidio?.toLocaleString('es-CL')} UF
             </div>
           </div>
@@ -86,7 +88,7 @@ export default function Step4Report({ mode, result, inputValue, onNext, onBack }
             <div style={{ fontSize: '12px', color: '#475569', marginBottom: '8px', textTransform: 'uppercase', fontWeight: 600, fontFamily: "'Space Mono', monospace" }}>
               Sin subsidio a la tasa
             </div>
-            <div style={{ fontSize: '28px', fontWeight: 700, color: '#1a3a52' }}>
+            <div style={{ fontSize: '28px', fontWeight: 700, color: '#1a3a52', fontFamily: "'Space Mono', monospace" }}>
               {resultA.sinSubsidio?.toLocaleString('es-CL')} UF
             </div>
           </div>
@@ -114,16 +116,16 @@ export default function Step4Report({ mode, result, inputValue, onNext, onBack }
           >
             Sueldo líquido mínimo
           </div>
-          <div style={{ fontSize: '36px', fontWeight: 700, color: '#10b981', marginBottom: '8px' }}>
+          <div style={{ fontSize: '36px', fontWeight: 700, color: '#10b981', marginBottom: '8px', fontFamily: "'Space Mono', monospace" }}>
             ${resultB.sueldoRequerido?.toLocaleString('es-CL')}
           </div>
-          <div style={{ fontSize: '13px', color: '#059669' }}>
+          <div style={{ fontSize: '13px', color: '#059669', fontFamily: "'Space Mono', monospace" }}>
             mensual para calificar
           </div>
         </div>
       )}
 
-      <p style={{ fontSize: '12px', color: '#666', textAlign: 'center', marginTop: '20px' }}>
+      <p style={{ fontSize: '12px', color: '#666', textAlign: 'center', marginTop: '20px', fontFamily: "'Space Mono', monospace" }}>
         ℹ️ {isModeA ? 'Estos montos son aproximados basados en tu sueldo líquido' : 'Este monto es aproximado y considera cuota a 30 años'}
       </p>
 
@@ -132,13 +134,24 @@ export default function Step4Report({ mode, result, inputValue, onNext, onBack }
         style={{
           width: '100%',
           padding: '12px',
-          background: '#2c3e50',
+          background: 'linear-gradient(135deg, #1a3a52 0%, #2c5282 100%)',
           color: 'white',
           border: 'none',
           borderRadius: '6px',
           fontWeight: 600,
           cursor: 'pointer',
           marginTop: '30px',
+          fontFamily: "'Space Mono', monospace",
+          fontSize: '16px',
+          transition: 'all 0.3s',
+        }}
+        onMouseOver={(e) => {
+          e.currentTarget.style.boxShadow = '0 8px 24px rgba(26, 58, 82, 0.3)';
+          e.currentTarget.style.transform = 'translateY(-2px)';
+        }}
+        onMouseOut={(e) => {
+          e.currentTarget.style.boxShadow = 'none';
+          e.currentTarget.style.transform = 'translateY(0)';
         }}
       >
         Siguiente
