@@ -23,14 +23,14 @@ export default function Step4Report({ mode, result, inputValue, onNext, onBack }
           background: 'none',
           border: 'none',
           cursor: 'pointer',
-          color: '#1a3a52',
+          color: '#FF2E00',
           textDecoration: 'underline',
           marginBottom: '15px',
           transition: 'color 0.3s',
           fontFamily: "'Space Mono', monospace",
           fontSize: '14px',
         }}
-        onMouseOver={(e) => (e.currentTarget.style.color = '#00d4ff')}
+        onMouseOver={(e) => (e.currentTarget.style.color = '#FFA500')}
         onMouseOut={(e) => (e.currentTarget.style.color = '#1a3a52')}
       >
         ← Volver
@@ -60,15 +60,15 @@ export default function Step4Report({ mode, result, inputValue, onNext, onBack }
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginTop: '24px' }}>
           <div
             style={{
-              background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)',
+              background: 'linear-gradient(135deg, #fff5eb 0%, #ffe4cc 100%)',
               padding: '24px',
               borderRadius: '12px',
               textAlign: 'center',
-              border: '2px solid #00d4ff',
+              border: '2px solid #FFA500',
               animation: 'fadeIn 0.6s ease-out',
             }}
           >
-            <div style={{ fontSize: '12px', color: '#0369a1', marginBottom: '8px', textTransform: 'uppercase', fontWeight: 600, fontFamily: "'Space Mono', monospace" }}>
+            <div style={{ fontSize: '12px', color: '#FF2E00', marginBottom: '8px', textTransform: 'uppercase', fontWeight: 600, fontFamily: "'Space Mono', monospace" }}>
               Con subsidio a la tasa
             </div>
             <div style={{ fontSize: '28px', fontWeight: 700, color: '#1a3a52', fontFamily: "'Space Mono', monospace" }}>
@@ -134,7 +134,7 @@ export default function Step4Report({ mode, result, inputValue, onNext, onBack }
         style={{
           width: '100%',
           padding: '12px',
-          background: 'linear-gradient(135deg, #1a3a52 0%, #2c5282 100%)',
+          background: 'linear-gradient(135deg, #FF2E00 0%, #FFA500 100%)',
           color: 'white',
           border: 'none',
           borderRadius: '6px',
@@ -146,7 +146,7 @@ export default function Step4Report({ mode, result, inputValue, onNext, onBack }
           transition: 'all 0.3s',
         }}
         onMouseOver={(e) => {
-          e.currentTarget.style.boxShadow = '0 8px 24px rgba(26, 58, 82, 0.3)';
+          e.currentTarget.style.boxShadow = '0 8px 24px rgba(255, 46, 0, 0.3)';
           e.currentTarget.style.transform = 'translateY(-2px)';
         }}
         onMouseOut={(e) => {
