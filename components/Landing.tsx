@@ -13,7 +13,7 @@ const Landing: React.FC<LandingProps> = ({ onStart }) => {
     },
     // Hero Section
     heroSection: {
-      background: 'linear-gradient(135deg, #FF2E00 0%, #2c5282 100%)',
+      background: 'linear-gradient(135deg, #FF2E00 0%, #FFA500 100%)',
       color: 'white',
       padding: '60px 20px',
       borderBottomLeftRadius: '24px',
@@ -120,7 +120,7 @@ const Landing: React.FC<LandingProps> = ({ onStart }) => {
       lineHeight: '1.5',
     },
     ctaButton: {
-      background: 'linear-gradient(135deg, #FF2E00 0%, #2c5282 100%)',
+      background: 'linear-gradient(135deg, #FF2E00 0%, #FFA500 100%)',
       color: 'white',
       padding: '14px 40px',
       border: 'none',
